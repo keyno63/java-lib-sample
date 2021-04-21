@@ -18,7 +18,9 @@ import java.util.Optional;
 )
 public class HeaderFilter implements Filter {
 
-    private final String TARGET_COOKIE_NAME = "target-cookie";
+    protected static final String TARGET_COOKIE_NAME = "target-cookie";
+
+    protected static final String ATTR_NAME_VALUE = "new-cookie";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HeaderFilter.class);
 
@@ -46,7 +48,7 @@ public class HeaderFilter implements Filter {
             LOGGER.debug("cookie is exist {}", cookie);
         }
 
-        request.setAttribute("", cookie);
+        request.setAttribute(ATTR_NAME_VALUE, cookie);
         chain.doFilter(request, response);
     }
 
