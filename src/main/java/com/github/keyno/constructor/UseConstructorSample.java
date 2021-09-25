@@ -7,13 +7,7 @@ public class UseConstructorSample {
         return sample.method(arg2);
     }
 
-    public static class ConstructorSample {
-
-        private final String value;
-
-        public ConstructorSample(String value) {
-            this.value = value;
-        }
+    public record ConstructorSample(String value) {
 
         public String method(String arg) {
             return String.format("field=[%s], method=[%s]", value, arg);
